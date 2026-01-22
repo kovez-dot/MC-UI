@@ -1,0 +1,15 @@
+.vscode/**
+.vscode-test/**
+test/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+node_modules
+src
+**/jsconfig.json
+**/*.map
+**/eslint.config.mjs
+**/.vscode-test.*
+.env
+JSON-UI-Schemas/old_ui.schema.json
+JSON-UI-Schemas/README.md

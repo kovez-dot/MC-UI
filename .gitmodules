@@ -1,0 +1,3 @@
+[submodule "JSON-UI-Schemas"]
+	path = JSON-UI-Schemas
+	url = https://github.com/kovez-dot/JSON-UI-Schemas.git

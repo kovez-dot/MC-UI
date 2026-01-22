@@ -1,0 +1,81 @@
+{
+    "name": "mc-ui",
+    "displayName": "MC UI",
+    "description": "",
+    "publisher": "Dingsel",
+    "icon": "./MCJSONUI.png",
+    "repository": {
+        "url": "https://https://github.com/kovez-dot/MC-UI"
+    },
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.67.2"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:json",
+        "onLanguage:jsonc"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "jsonValidation": [
+            {
+                "fileMatch": [
+                    "ui/**/*.{json,jsonc,json5}",
+                    "*.ui.json",
+                    "!_ui_defs.json",
+                    "!_global_variables.json"
+                ],
+                "url": "./JSON-UI-Schemas/ui.schema.json"
+            },
+            {
+                "url": "./JSON-UI-Schemas/ui_defs.schema.json",
+                "fileMatch": [
+                    "_ui_defs.json"
+                ]
+            },
+            {
+                "url": "./JSON-UI-Schemas/global_variables.schema.json",
+                "fileMatch": [
+                    "_global_variables.json"
+                ]
+            }
+        ],
+        "languages": [
+            {
+                "id": "json",
+                "aliases": [
+                    "JSON",
+                    "json"
+                ],
+                "extensions": [
+                    ".json",
+                    ".jsonc",
+                    ".json5"
+                ]
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint . && tsc",
+        "build": ".\\node_modules\\.bin\\esbuild ./src/extension.js --bundle --outfile=dist/extension.js --external:vscode --sourcemap --platform=node",
+        "watch": ".\\node_modules\\.bin\\esbuild ./src/extension.js --bundle --outfile=dist/extension.js --external:vscode --sourcemap --platform=node --watch",
+        "package": "vsce package",
+        "publish": "vsce publish"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.9",
+        "@types/node": "20.x",
+        "@types/vscode": "^1.95.0",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.4.1",
+        "@vscode/vsce": "^3.2.1",
+        "esbuild": "^0.25.9",
+        "eslint": "^9.13.0"
+    },
+    "dependencies": {
+        "glob": "^11.0.0"
+    }
+}
